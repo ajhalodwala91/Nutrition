@@ -1,3 +1,5 @@
+const heroImage = "./src/assets/images/hero-image.png";
+
 /** @type {import('tailwindcss').Config} */
 export default {
 	content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
@@ -11,7 +13,7 @@ export default {
 				primary: "#428e7c",
 			},
 			backgroundImage: {
-				"hero-image": "url('./src/assets/images/hero-image.png')",
+				"hero-image": `url(${heroImage})`,
 				"nutritional-care":
 					"url('./src/assets/images/nutritional-care.png')",
 				"specialized-diets":
