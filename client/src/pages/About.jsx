@@ -6,7 +6,7 @@ const About = () => {
 		<>
 			<div className="flex p-8 md:py-20 md:px-32 bg-gray-200">
 				<div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-16 md:mt-16 mt-24">
-					<img className="rounded-3xl" src={aboutUs} alt="About" />
+					{/* <img className="rounded-3xl" src={aboutUs} alt="About" /> */}
 					<div className="flex flex-col gap-6 text-center md:text-left">
 						<h1 className="text-5xl sm:text-6xl md:text-7xl text-primary font-semibold font-oduda">
 							About Us

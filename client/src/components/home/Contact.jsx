@@ -14,12 +14,12 @@ const Contact = () => {
 					/>
 					<input
 						type="text"
-						placeholder="Your Name"
+						placeholder="Your Email"
 						className="flex-1 h-14 rounded p-4 outline-none border border-gray-400 hover:border-gray-950 focus:border-emerald-900 focus:border-2 bg-transparent"
 					/>
 					<input
 						type="text"
-						placeholder="Your Name"
+						placeholder="Your Address"
 						className="flex-1 h-14 rounded p-4 outline-none border border-gray-400 hover:border-gray-950 focus:border-emerald-900 focus:border-2 bg-transparent"
 					/>
 				</div>
