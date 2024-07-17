@@ -1,5 +1,6 @@
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
+import { Analytics } from "@vercel/analytics/react"
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -29,6 +30,7 @@ const App = () => {
 			</Routes>
 
 			<Toaster />
+			<Analytics />
 		</div>
 	);
 };
