@@ -7,7 +7,7 @@ const Footer = () => {
 				<p>batuljhalodwala53@gmail.com</p>
 				<p>+91 98765 43210</p>
 				<p>
-					106, Burhani Apt., Husaini Colony, Bhabola Naka, Vasai (W),
+					106, Lake Avenue., Supra Colony, Richard Town, Jango,
 					Maharashtra, India
 				</p>
 			</div>
