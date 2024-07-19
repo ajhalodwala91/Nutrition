@@ -193,7 +193,7 @@ const Login = () => {
 
 				<button
 					onClick={handleSubmit}
-					className="bg-primary rounded-full p-3 text-white hover:bg-[#38796a] hover:shadow-xl"
+					className="bg-primary rounded-full p-3 text-white hover:bg-primaryhover hover:shadow-xl"
 				>
 					{loading ? <PulseLoader /> : "Register"}
 				</button>

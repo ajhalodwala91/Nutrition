@@ -21,6 +21,7 @@ module.exports = {
 				background: "hsl(var(--background))",
 				foreground: "hsl(var(--foreground))",
 				primary: "#428e7c",
+				primaryhover: "#38796a"
 			},
 			backgroundImage: {
 				"hero-image": `url('./src/assets/images/hero-image.png')`,

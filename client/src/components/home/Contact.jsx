@@ -32,7 +32,7 @@ const Contact = () => {
 
 				<button
 					onClick={(e) => e.preventDefault()}
-					className="px-4 py-3 bg-primary text-gray-200 rounded-md text-sm mt-2"
+					className="px-4 py-3 bg-primary hover:bg-primaryhover hover:shadow-xl text-gray-200 rounded-md text-sm mt-2"
 				>
 					SEND MESSAGE
 				</button>

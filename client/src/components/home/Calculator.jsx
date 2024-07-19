@@ -88,7 +88,7 @@ const Calculator = () => {
 
 						<button
 							onClick={handleReset}
-							className="w-fit px-4 py-3 bg-primary text-gray-200 rounded-lg text-sm mt-2"
+							className="w-fit px-4 py-3 bg-primary hover:bg-primaryhover hover:shadow-xl text-gray-200 rounded-lg text-sm mt-2"
 						>
 							RESET
 						</button>
@@ -131,7 +131,7 @@ const Calculator = () => {
 
 						<button
 							onClick={handleCalculate}
-							className="w-fit px-4 py-3 bg-primary text-gray-200 rounded-lg text-sm mt-2"
+							className="w-fit px-4 py-3 bg-primary hover:bg-primaryhover hover:shadow-xl text-gray-200 rounded-lg text-sm mt-2"
 						>
 							CALCULATE
 						</button>
