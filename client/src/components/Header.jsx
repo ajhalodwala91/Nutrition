@@ -66,7 +66,7 @@ const Header = () => {
 						onClick={() =>
 							authUser ? handleLogout() : navigate("/login")
 						}
-						className={`px-4 py-2 rounded font-semibold hover:shadow-lg hover:font-semibold ${
+						className={`px-4 py-2 rounded font-semibold hover:shadow-lg hover:font-semibold hover:scale-90 transition-transform ${
 							pathname === "/error/404" 
 								? "bg-gray-200"
 								: "bg-primary text-gray-200"
