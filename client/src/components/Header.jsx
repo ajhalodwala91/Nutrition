@@ -12,6 +12,9 @@ const Header = () => {
 	const { authUser } = useAuthContext();
 	const [isHeaderOpen, setIsHeaderOpen] = useState(false);
 
+	const isErrorPage = pathname === "/error/404";
+	const isAboutPage = pathname === "/about";
+
 	const logout = useLogout();
 	const handleLogout = async () => {
 		await logout();
@@ -24,18 +27,14 @@ const Header = () => {
 				<div className="cursor-pointer" onClick={() => navigate("/")}>
 					<p
 						className={`text-center text-4xl font-semibold font-oduda ${
-							pathname === "/error/404" 
-								? "text-gray-900"
-								: "text-primary"
+							isErrorPage ? "text-gray-900" : "text-primary"
 						}`}
 					>
 						Purely
 					</p>
 					<p
 						className={`text-center font-semibold tracking-wide ${
-							pathname === "/error/404" 
-								? "text-gray-900"
-								: "text-gray-600"
+							isErrorPage ? "text-gray-900" : "text-gray-600"
 						}`}
 					>
 						NUTRITIOUS
@@ -43,31 +42,34 @@ const Header = () => {
 				</div>
 
 				<div className="hidden lg:flex justify-end items-center gap-12">
-					{navigation.map((link, index) => (
-						<Link
-							key={index}
-							to={link.route}
-							className={`text-lg hover:drop-shadow-lg ${
-								pathname === "/error/404" ||
-								pathname === "/about"
-									? "hover:text-black"
-									: "hover:text-primary"
-							} ${pathname === link.route && "drop-shadow-lg"}
-							 ${
-									pathname === link.route &&
-									pathname !== "/about" &&
+					{navigation.map((link, index) => {
+						const isCurrPageOpen = pathname === link.route;
+						return (
+							<Link
+								key={index}
+								to={link.route}
+								className={`text-lg hover:drop-shadow-lg hover:font-semibold transition-all ${
+									isCurrPageOpen && "drop-shadow-lg"
+								} ${
+									isErrorPage || isAboutPage
+										? "hover:text-black"
+										: "hover:text-primary"
+								} ${
+									isCurrPageOpen &&
+									!isAboutPage &&
 									"text-primary"
-								} hover:font-semibold transition-all`}
-						>
-							{link.name}
-						</Link>
-					))}
+								} `}
+							>
+								{link.name}
+							</Link>
+						);
+					})}
 					<button
 						onClick={() =>
 							authUser ? handleLogout() : navigate("/login")
 						}
 						className={`px-4 py-2 rounded font-semibold hover:shadow-lg hover:font-semibold hover:scale-90 transition-transform ${
-							pathname === "/error/404" 
+							isErrorPage
 								? "bg-gray-200"
 								: "bg-primary text-gray-200"
 						}`}
