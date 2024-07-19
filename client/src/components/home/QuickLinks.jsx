@@ -35,10 +35,10 @@ const QuickLinks = () => {
 			</div>
 
 			<div className="md:w-4/5 xl:w-3/5">
-				<QuickLink name="Diabetes" to="/" />
-				<QuickLink name="PCOS/PCOD" to="/" />
-				<QuickLink name="Hypertension" to="/" />
-				<QuickLink name="Obesity" to="/" />
+				<QuickLink name="Diabetes" to="/nutritionalcare/diabetesmellitus" />
+				<QuickLink name="PCOS/PCOD" to="/nutritionalcare/pcospcod" />
+				<QuickLink name="Hypertension" to="/nutritionalcare/hypertension" />
+				<QuickLink name="Obesity" to="/nutritionalcare/obesity" />
 			</div>
 		</div>
 	);

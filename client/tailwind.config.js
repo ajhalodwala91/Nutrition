@@ -1,8 +1,13 @@
-import heroImage from "./src/assets/images/hero-image.png";
-
 /** @type {import('tailwindcss').Config} */
-export default {
-	content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+module.exports = {
+	darkMode: ["class"],
+	content: [
+		"./pages/**/*.{js,jsx}",
+		"./components/**/*.{js,jsx}",
+		"./app/**/*.{js,jsx}",
+		"./src/**/*.{js,jsx}",
+	],
+	prefix: "",
 	theme: {
 		fontFamily: {
 			oduda: "Oduda",
@@ -10,6 +15,11 @@ export default {
 		},
 		extend: {
 			colors: {
+				border: "hsl(var(--border))",
+				input: "hsl(var(--input))",
+				ring: "hsl(var(--ring))",
+				background: "hsl(var(--background))",
+				foreground: "hsl(var(--foreground))",
 				primary: "#428e7c",
 			},
 			backgroundImage: {
@@ -22,20 +32,25 @@ export default {
 			},
 			boxShadow: {
 				"4xl": "0 0 12px black",
-			},
+				},
 			dropShadow: {
 				"4xl": "0 0 12px black",
 			},
 			keyframes: {
-				append: {
-					from: { transform: "scaleY(0)", opacity: 0 },
-					to: { transform: "scaleY(1)", opacity: 1 },
+				"accordion-down": {
+					from: { height: "0" },
+					to: { height: "var(--radix-accordion-content-height)" },
+				},
+				"accordion-up": {
+					from: { height: "var(--radix-accordion-content-height)" },
+					to: { height: "0" },
 				},
 			},
 			animation: {
-				append: "append 0.2s linear",
+				"accordion-down": "accordion-down 0.2s ease-out",
+				"accordion-up": "accordion-up 0.2s ease-out",
 			},
 		},
 	},
-	plugins: [],
+	plugins: [require("tailwindcss-animate")],
 };

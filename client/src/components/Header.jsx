@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { IoMenuOutline } from "react-icons/io5";
 import { HiOutlinePlus } from "react-icons/hi";
-import { navigation } from "../constants/navigation";
+import { navigation } from "../constants/navigation.list.js";
 import { useAuthContext } from "../../contexts/AuthContext";
 import useLogout from "../hooks/useLogout";
 
@@ -66,7 +66,7 @@ const Header = () => {
 						onClick={() =>
 							authUser ? handleLogout() : navigate("/login")
 						}
-						className={`px-4 py-2 rounded font-semibold ${
+						className={`px-4 py-2 rounded font-semibold hover:shadow-lg hover:font-semibold ${
 							pathname === "/error/404" 
 								? "bg-gray-200"
 								: "bg-primary text-gray-200"
@@ -100,13 +100,13 @@ const Header = () => {
 					isHeaderOpen ? "top-0" : "-top-[100%]"
 				} `}
 			>
-				<div className="flex flex-col gap-6">
+				<div className="flex flex-col items-center gap-6 w-full">
 					{navigation.map((link, index) => (
 						<Link
 							onClick={() => setIsHeaderOpen(false)}
 							key={index}
 							to={link.route}
-							className="text-center text-lg text-gray-200 hover:drop-shadow-lg hover:text-primary hover:font-semibold transition-all"
+							className="text-center text-lg text-gray-200 hover:drop-shadow-lg hover:text-primary hover:font-semibold transition-transform"
 						>
 							{link.name}
 						</Link>
@@ -116,7 +116,7 @@ const Header = () => {
 							setIsHeaderOpen(false);
 							authUser ? handleLogout() : navigate("/login");
 						}}
-						className="bg-white px-4 py-2 text-black font-bold rounded"
+						className="bg-white px-4 py-2 text-black font-bold rounded w-28"
 					>
 						{authUser ? "Logout" : "Login"}
 					</button>
