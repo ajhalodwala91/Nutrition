@@ -26,7 +26,7 @@ const CarePage = () => {
 					)}
 
 					<div className="flex flex-col flex-1 gap-6 lg:h-[500px] overflow-auto pr-4 scrollview">
-						<h1 className="text-5xl sm:text-6xl font-oduda tracking-wide">
+						<h1 className="text-5xl sm:text-6xl font-oduda tracking-wide break-words">
 							{carePage?.title}
 						</h1>
 						<p>
