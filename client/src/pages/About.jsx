@@ -1,4 +1,3 @@
-import aboutUs from "../assets/images/photo.jpg";
 import Footer from "../components/Footer";
 
 const About = () => {

@@ -9,6 +9,7 @@ const ResetPassword = lazy(() => import("./pages/ResetPassword"));
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const NutritionalCare = lazy(() => import("./pages/NutritionalCare"));
+const Blogs = lazy(() => import("./pages/Blogs"));
 const CarePage = lazy(() => import("./pages/CarePage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -34,6 +35,7 @@ const App = () => {
 						path="/nutritionalcare/:page"
 						element={<CarePage />}
 					/>
+					<Route path="/blogs" element={<Blogs />} />
 					<Route path="/about" element={<About />} />
 
 					<Route path="/login" element={<Login />} />
