@@ -7,6 +7,12 @@ import authRoutes from "./routes/auth.routes.js";
 dotenv.config();
 const app = express();
 
+app.use(
+	cors({
+		origin: "https://purelynutritous.vercel.app",
+		credentials: true,
+	})
+);
 app.use(express.json());
 app.use(cookieParser());
 
