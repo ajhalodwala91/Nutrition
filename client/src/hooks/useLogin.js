@@ -45,7 +45,6 @@ const useLogin = () => {
 				return;
 			}
 
-			localStorage.setItem("token", JSON.stringify(data));
 			setAuthUser(data);
 			navigate("/");
 		} catch (error) {
