@@ -22,7 +22,7 @@ const Header = () => {
 
 	return (
 		<>
-			<div className="absolute flex gap-4 items-center justify-between p-8 md:px-16 w-screen">
+			<div className="absolute flex gap-4 items-center justify-between p-8 md:px-16 w-full">
 				{/* Logo */}
 				<div className="cursor-pointer" onClick={() => navigate("/")}>
 					<p
@@ -98,8 +98,8 @@ const Header = () => {
 
 			{/* Drawer */}
 			<div
-				className={`absolute flex items-center justify-center lg:hidden w-screen h-screen bg-black opacity-70 transition-all duration-700 z-10 ${
-					isHeaderOpen ? "top-0" : "-top-[100%]"
+				className={`fixed flex items-center justify-center lg:hidden h-full w-full bg-black opacity-70 transition-all duration-700 z-10 ${
+					isHeaderOpen ? "top-0" : "-top-full"
 				} `}
 			>
 				<div className="flex flex-col items-center gap-6 w-full">

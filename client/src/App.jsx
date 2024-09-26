@@ -2,6 +2,8 @@ import { lazy, Suspense } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import Header from "./components/Header";
+import Blog from "./pages/Blog";
+import ScrollToTop from "./components/ScrollToTop";
 
 const Login = lazy(() => import("./pages/Login"));
 const Signup = lazy(() => import("./pages/Signup"));
@@ -15,12 +17,13 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 
 const App = () => {
 	return (
-		<div className="h-screen w-screen overflow-x-hidden relative">
+		<div className="w-full overflow-x-hidden">
 			<Header />
+			<ScrollToTop />
 
 			<Suspense
 				fallback={
-					<div className="flex items-center justify-center h-screen w-screen">
+					<div className="flex items-center justify-center h-screen w-full">
 						Loading...
 					</div>
 				}
@@ -32,10 +35,13 @@ const App = () => {
 						element={<NutritionalCare />}
 					/>
 					<Route
-						path="/nutritionalcare/:page"
+						path="nutritionalcare/:page"
 						element={<CarePage />}
 					/>
+
 					<Route path="/blogs" element={<Blogs />} />
+					<Route path="/blog/:blogId" element={<Blog />} />
+
 					<Route path="/about" element={<About />} />
 
 					<Route path="/login" element={<Login />} />

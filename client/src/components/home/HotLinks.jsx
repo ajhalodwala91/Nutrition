@@ -14,7 +14,7 @@ const HotLink = ({ to, img, name }) => (
 			className="absolute h-full w-full object-cover transition-transform duration-700 group-hover:scale-125"
 		/>
 		<div className="absolute inset-0 bg-[#14532dcc] transition-all duration-200 opacity-0 group-hover:opacity-100"></div>
-		<p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white font-semibold text-2xl drop-shadow-4xl">
+		<p className="absolute-center text-center text-white font-semibold text-2xl drop-shadow-4xl">
 			{name}
 		</p>
 	</Link>

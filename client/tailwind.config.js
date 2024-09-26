@@ -14,6 +14,9 @@ module.exports = {
 			montserrat: "Montserrat",
 		},
 		extend: {
+			screens: {
+				"xs": "410px",
+			},
 			colors: {
 				border: "hsl(var(--border))",
 				input: "hsl(var(--input))",
@@ -21,7 +24,7 @@ module.exports = {
 				background: "hsl(var(--background))",
 				foreground: "hsl(var(--foreground))",
 				primary: "#428e7c",
-				primaryhover: "#38796a"
+				primaryhover: "#38796a",
 			},
 			backgroundImage: {
 				"hero-image": `url('./src/assets/images/hero-image.png')`,
@@ -33,7 +36,7 @@ module.exports = {
 			},
 			boxShadow: {
 				"4xl": "0 0 12px black",
-				},
+			},
 			dropShadow: {
 				"4xl": "0 0 12px black",
 			},

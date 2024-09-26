@@ -56,7 +56,7 @@ const Calculator = () => {
 	};
 
 	return (
-		<div className="flex p-8 sm:p-16 w-screen justify-center items-center gap-20 h-[550px]">
+		<div className="flex p-8 sm:p-16  justify-center items-center gap-20 h-[550px]">
 			<div className="hidden lg:block">
 				<img src={bmiCalculator} alt="BMI Calculator" />
 			</div>

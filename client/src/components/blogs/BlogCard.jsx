@@ -15,10 +15,11 @@ const BlogCard = ({
 	const [isLiked, setIsLiked] = useState(false);
 
 	return (
-		<div className="w-[380px] bg-gray-50 rounded-xl p-8 hover:scale-[95%] hover:shadow-2xl transition-transform duration-300 shadow-xl">
+		<div className="min-w-full xs:min-w-[380px] max-w-[380px] bg-gray-50 rounded-xl p-6 sm:p-8 hover:scale-[95%] hover:shadow-2xl transition-transform duration-300 shadow-xl">
 			<Link to={route} className="flex flex-col gap-6">
 				<img
 					src={icon}
+					onError={(e) => e.target.src = "https://media.istockphoto.com/id/1500807425/vector/image-not-found-icon-vector-design.jpg?s=612x612&w=0&k=20&c=SF3EoL0zSi3XUwFzduMo3xdJFEk8V5IUsGqRocgPEtU="}
 					alt={title}
 					className="h-64 sm:h-80 object-cover rounded-lg"
 				/>

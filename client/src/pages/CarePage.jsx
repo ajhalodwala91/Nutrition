@@ -1,17 +1,29 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { careList } from "../constants/nutritionalcare.list";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Footer from "../components/Footer";
+import BlogCard from "@/components/blogs/BlogCard";
+import { blogs } from "@/placeholders/blogs.placeholder";
+import { posts } from "@/placeholders/posts.placeholder";
+import { HiOutlinePlus } from "react-icons/hi";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const CarePage = () => {
 	const navigate = useNavigate();
+
+	const [modal, setModal] = useState({
+		status: false,
+		postIdx: -1,
+	});
 
 	const { page } = useParams();
 	const carePage = careList.find((item) => item.route.endsWith(page));
 
 	useEffect(() => {
-		if (!carePage) navigate("/nutritionalcare");
-	}, [carePage]);
+		if (!carePage) {
+			navigate("/nutritionalcare");
+		}
+	}, [carePage, modal]);
 
 	return (
 		<>
@@ -26,47 +38,117 @@ const CarePage = () => {
 					)}
 
 					<div className="flex flex-col flex-1 gap-6 lg:h-[500px] overflow-auto pr-4 scrollview">
-						<h1 className="text-5xl sm:text-6xl font-oduda tracking-wide break-words">
+						<h1 className="text-4xl sm:text-6xl font-oduda tracking-wide break-words">
 							{carePage?.title}
 						</h1>
-						<p>
-							Losing weight is a mind game. Change your mind,
-							change your body.â€ People often think that starving
-							themselves is the best way to lose weight. But by
-							starving themselves they are losing their body and
-							not weight. It is easy to lose Kilos, but the
-							nutrients once lost can take months or sometimes
-							even years to replenish. The aim is not weight loss
-							but gaining appropriate nutrition. <br />
-							<br /> In order to lose weight it is important to
-							understand the factors that cause obesity or
-							over-weight, which are as follows: It could be
-							because of genes, metabolism, behaviour pattern,
-							culture and socio-economic status It can be caused
-							by energy imbalance which involves eating too many
-							calories and not doing enough physical activity.
-							Environment and behaviour are also the important
-							factors causing obesity
-							<br />
-							<br />
-							As a dietitian, it is important to understand what
-							is causing weight gain in an individual as every
-							body type is different and so are the needs.
-							Dietitian Garima keeps in consideration all the
-							factors including your daily routine and eating
-							habits making a diet plan that suits you the best.
-							<br />
-							<br />
-							The diet plans are customized according to every
-							individual and ensure that the weight loss is not
-							temporary but is a lifestyle that you adopt for a
-							healthy living. Get a nutritious diet plan to fit in
-							your lifestyle and live in style. <br />
-							<br />
-							She also offers you Detox plans. Detox plans aim at
-							facilitating toxin removal and also promote weight
-							loss.
+						<p className="sm:text-lg leading-7 sm:leading-8 whitespace-pre-wrap">
+							{carePage?.content}
 						</p>
+					</div>
+				</div>
+
+				{/* Related Posts Section */}
+				<div>
+					<h1 className="text-4xl font-semibold break-words py-8 sm:py-12">
+						Related Posts
+					</h1>
+
+					<div className="flex overflow-x-auto scrollview pb-8 sm:pb-0 sm:horizontal-scrollview gap-12 bg-gray-200">
+						{posts.map((post, index) => (
+							<img
+								key={index}
+								src={post}
+								alt=""
+								className="h-96 rounded-lg cursor-pointer"
+								onClick={() =>
+									setModal({
+										status: true,
+										postIdx: index,
+									})
+								}
+							/>
+						))}
+					</div>
+				</div>
+
+				{/* Modal */}
+				{modal.status && (
+					<div className="fixed z-30 h-full w-screen bg-black bg-opacity-50 top-0 left-0">
+						{/* Close Button */}
+						<span className="fixed top-12 sm:top-16 right-8 sm:right-16 rounded-full h-12 w-12 z-40">
+							<HiOutlinePlus
+								className="absolute-center text-4xl hover:cursor-pointer text-white xs:text-black sm:text-white rotate-45"
+								onClick={() => {
+									setModal({ status: false, postIdx: -1 });
+								}}
+							/>
+						</span>
+
+						{/* Image */}
+						<img
+							src={posts[modal.postIdx]}
+							alt=""
+							className="w-4/5 xs:w-[unset] xs:h-4/5 rounded-xl absolute-center"
+						/>
+
+						{/* Left Arrow */}
+						{modal.postIdx > 0 && (
+							<span className="fixed top-1/2 -translate-y-1/2 left-0 sm:left-16 rounded-full h-12 w-12">
+								<IoIosArrowBack
+									className="absolute-center text-3xl xs:text-4xl hover:cursor-pointer text-white xs:text-black sm:text-white z-20"
+									onClick={() => {
+										setModal({
+											status: true,
+											postIdx:
+												modal.postIdx > 0
+													? modal.postIdx - 1
+													: 0,
+										});
+									}}
+								/>
+							</span>
+						)}
+
+						{/* Right Arrow */}
+						{modal.postIdx < posts.length - 1 && (
+							<span className="fixed top-1/2 -translate-y-1/2 right-0 sm:right-16 rounded-full h-12 w-12">
+								<IoIosArrowForward
+									className="absolute-center text-3xl xs:text-4xl hover:cursor-pointer text-white xs:text-black sm:text-white z-20"
+									onClick={() => {
+										setModal({
+											status: true,
+											postIdx:
+												modal.postIdx < posts.length - 1
+													? modal.postIdx + 1
+													: posts.length - 1,
+										});
+									}}
+								/>
+							</span>
+						)}
+					</div>
+				)}
+
+				{/* Related Blogs Section */}
+				<div>
+					<h1 className="text-4xl font-semibold break-words py-8 sm:py-12">
+						Related Blogs
+					</h1>
+
+					<div className="flex flex-col xs:flex-row overflow-x-auto scrollview pb-8 sm:pb-0 sm:horizontal-scrollview gap-12 bg-gray-200">
+						{blogs.map((blog, index) => (
+							<BlogCard
+								key={index}
+								createdOn={blog.updatedAt}
+								route={`/blog/${blog._id}`}
+								icon={blog.coverImg}
+								title={blog.title}
+								description={blog.descrition}
+								views={blog.views}
+								likes={blog.likes}
+								isLiked={blog.isLiked}
+							/>
+						))}
 					</div>
 				</div>
 			</div>
